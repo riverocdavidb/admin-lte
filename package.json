@@ -1,0 +1,111 @@
+{
+  "_from": "admin-lte",
+  "_id": "admin-lte@3.0.0-alpha.2",
+  "_inBundle": false,
+  "_integrity": "sha512-zVa70VtvW5MLCfKfdsJ05U6kAquWgu+GNoxkzkI0jn+fRWH1omuyJALSI9v+6g8sOQmO1oqWJghuyPW697063g==",
+  "_location": "/admin-lte",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "admin-lte",
+    "name": "admin-lte",
+    "escapedName": "admin-lte",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/admin-lte/-/admin-lte-3.0.0-alpha.2.tgz",
+  "_shasum": "5da08f9b9273fc0c445d4f98cbc03aa35631adcd",
+  "_spec": "admin-lte",
+  "_where": "E:\\Holismus Core\\Development\\admin",
+  "author": {
+    "name": "Abdullah Almsaeed",
+    "email": "abdullah@almsaeedstudio.com"
+  },
+  "bugs": {
+    "url": "https://github.com/almasaeed2010/AdminLTE/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^1.0.0-beta.4",
+    "bootstrap": "^4.1.0",
+    "chart.js": "^2.7.2",
+    "datatables.net": "^1.10.16",
+    "datatables.net-bs4": "^1.10.16",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "popper.js": "^1.14.3"
+  },
+  "deprecated": false,
+  "description": "Responsive open source admin dashboard and control panel.",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.7",
+    "clean-css-cli": "^4.1.11",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-plugin-compat": "^2.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "fs-extra": "^5.0.0",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.8.3",
+    "nodemon": "^1.17.3",
+    "npm-run-all": "^4.1.2",
+    "path": "^0.12.7",
+    "rollup": "^0.55.5",
+    "rollup-plugin-babel": "^3.0.3",
+    "style-loader": "^0.19.1",
+    "uglify-js": "^3.3.22"
+  },
+  "homepage": "https://adminlte.io",
+  "keywords": [
+    "css",
+    "sass",
+    "responsive",
+    "admin",
+    "template",
+    "theme",
+    "framework",
+    "control-panel",
+    "dashboard"
+  ],
+  "license": "MIT",
+  "main": "dist/js/adminlte.min.js",
+  "name": "admin-lte",
+  "peerDependencies": {
+    "font-awesome": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/almasaeed2010/AdminLTE.git"
+  },
+  "sass": "build/scss/AdminLTE.scss",
+  "scripts": {
+    "compile": "npm-run-all --parallel js css",
+    "css": "npm-run-all --sequential css-compile css-minify",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 build/scss/AdminLTE.scss dist/css/adminlte.css",
+    "css-minify": "cleancss --level 1 --output dist/css/adminlte.min.css dist/css/adminlte.css",
+    "dev": "npm-run-all --parallel watch sync",
+    "js": "npm-run-all --sequential js-compile js-minify",
+    "js-compile": "rollup -c --sourcemap",
+    "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/adminlte.js.map,includeSources,url=adminlte.min.js.map\" --output dist/js/adminlte.min.js dist/js/adminlte.js",
+    "plugins": "node build/npm/Publish.js -v",
+    "production": "npm-run-all --parallel compile && node build/npm/Publish.js -v",
+    "sync": "browser-sync start --server --files *.html pages/ dist/",
+    "watch": "npm-run-all --parallel watch-css watch-js",
+    "watch-css": "nodemon --watch build/scss -e scss -x \"npm run css\"",
+    "watch-js": "nodemon --watch build/js -e js -x \"npm run js\""
+  },
+  "style": "dist/css/adminlte.css",
+  "version": "3.0.0-alpha.2"
+}
